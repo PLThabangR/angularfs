@@ -1,3 +1,4 @@
+import { ItemService } from './services/item.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -11,18 +12,20 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './components/items/items.component';
+
+import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
     ItemsComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     AppRoutingModule,
    AngularFireModule.initializeApp(environment.firebase,'angularfs'),
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
