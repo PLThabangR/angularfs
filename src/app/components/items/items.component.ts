@@ -8,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemsComponent implements OnInit {
 
-  constructor(private itemService : ItemService) { }
+  // Use constructor to enject itemService in to this component
+  constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
-  
+    //fetch data from firebase
+    this.itemService.getItems().subscribe(
+      res => {
+        console.log(res);
+      }
+    );
 
   }
 
