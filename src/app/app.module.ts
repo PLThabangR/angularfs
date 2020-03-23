@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
-//Firebase imports
-import {environment} from '../environments/environment';
+// Firebase imports
+import {environment} from '../environments/environment.prod';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 
@@ -28,7 +28,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-   AngularFireModule.initializeApp(environment.firebase,'angularfs'),
+   AngularFireModule.initializeApp(environment.firebase, 'angularfs'),
     AngularFirestoreModule,
     FormsModule
 
