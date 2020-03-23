@@ -1,6 +1,8 @@
-import { Item } from './../../Modal/Item';
+import { Item } from 'src/app/Modal/Item';
+
 import { ItemService } from './../../services/item.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-items',
