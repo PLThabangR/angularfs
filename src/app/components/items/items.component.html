@@ -1,1 +1,14 @@
-<p>items works!</p>
+<div *ngIf="items?.length >0 ; else noItems" >
+
+  <ul *ngFor="let item of items" class="collection">
+    <li class="collection-item">{{item.id}}<strong>{{item.title}} </strong>: {{item.description}}</li>
+
+
+  </ul>
+
+
+</div>
+
+<ng-template #noItems>
+  <h3>There are no items in the list</h3>
+</ng-template>
