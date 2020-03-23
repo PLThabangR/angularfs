@@ -60,6 +60,13 @@ deleteItem(item: Item) {
   this.itemDoc.delete();
 }
 
+// Update method
+updateItem(item: Item) {
+  // the doc need to know which item we talking about hence we used backtiks
+  this.itemDoc = this.afs.doc(`items/${item.id}`);
+  this.itemDoc.update(item);
+}
+
 }
 
 

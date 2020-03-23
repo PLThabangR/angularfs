@@ -1,7 +1,7 @@
 <div *ngIf="items?.length >0 ; else noItems" >
 
   <ul *ngFor="let item of items" class="collection">
-    <li  class="collection-item">{{item.id}}<strong>{{item.title}} </strong>: {{item.description}}
+    <li  class="collection-item">{{item.id }}{{'  '}}<strong>{{ item.title}}</strong>: {{ item.description }}
     <a href="#" style="float: right;">
       <i (click)="editItem($event,item)" class="fa fa-pencil"></i>
       <i *ngIf="editState && itemToEdit.id == item.id" (click)="clearstate()" class="fa fa-compress"></i>

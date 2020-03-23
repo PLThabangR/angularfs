@@ -31,22 +31,25 @@ console.log('No Internet');
 
   }
 
-  deleteItem(event, item) {
+  deleteItem(event, item: Item) {
+    this.clearstate();
     this.itemService.deleteItem(item);
   }
 
-  editItem(event, item) {
+  editItem(event, item: Item) {
     this.editState = true;
     this.itemToEdit = item;
 
   }
 
 
-  updateItem(item) {
-
+  updateItem(item: Item) {
+    this.itemService.updateItem(item);
+    this.clearstate();
   }
 
   clearstate() {
     this.editState = false;
+    this.itemToEdit = null;
   }
 }
