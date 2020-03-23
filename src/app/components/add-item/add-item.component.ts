@@ -17,12 +17,15 @@ item: Item = {
   ngOnInit(): void {
   }
 
-  onSubmit(){
+  onSubmit() {
 
-    if(this.item.title != '' &&  this.item.description !='' ){
+    // tslint:disable-next-line: triple-equals
+    if (this.item.title != '' &&  this.item.description != '' ) {
     this.itemService.addItem(this.item);
     this.item.title = '';
     this.item.description = '';
+    } else {
+      console.log(' Write somthing' );
     }
 
   }

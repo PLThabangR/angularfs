@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemsComponent implements OnInit {
  items: Item[];
+ editState = false;
+ itemToEdit: Item;
   // Use constructor to enject itemService in to this component
   constructor(private itemService: ItemService) { }
 
@@ -16,7 +18,7 @@ export class ItemsComponent implements OnInit {
     this.fetchData();
   }
 
-  fetchData(){
+  fetchData() {
   // fetch data from firebase
   this.itemService.getItems().subscribe(
     res => {
@@ -29,7 +31,22 @@ console.log('No Internet');
 
   }
 
-  deleteItem(event,item){
+  deleteItem(event, item) {
     this.itemService.deleteItem(item);
+  }
+
+  editItem(event, item) {
+    this.editState = true;
+    this.itemToEdit = item;
+
+  }
+
+
+  updateItem(item) {
+
+  }
+
+  clearstate() {
+    this.editState = false;
   }
 }

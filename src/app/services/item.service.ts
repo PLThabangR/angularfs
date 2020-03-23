@@ -34,7 +34,7 @@ itemDoc: AngularFirestoreDocument<Item>;
 this.itemCollections = this.afs.collection('items', ref => ref.orderBy('title', 'asc'));
 
 // Getting the id from firebase
-this.items = this.itemCollections.snapshotChanges().pipe(map(changes =>{
+this.items = this.itemCollections.snapshotChanges().pipe(map(changes => {
   return changes.map(a => {
     const data = a.payload.doc.data() as Item;
     data.id = a.payload.doc.id;
@@ -46,17 +46,17 @@ this.items = this.itemCollections.snapshotChanges().pipe(map(changes =>{
   }
 
   // Getting data from firebase noSql
-getItems(){
+getItems() {
   return this.items;
 }
 // Add item to the firebase
-addItem(item: Item){
+addItem(item: Item) {
   this.itemCollections.add(item);
 }
 
-deleteItem(item:Item){
+deleteItem(item: Item) {
   // the doc need to know which item we talking about hence we used backtiks
-  this.itemDoc =this.afs.doc(`items/${item.id}`);
+  this.itemDoc = this.afs.doc(`items/${item.id}`);
   this.itemDoc.delete();
 }
 
