@@ -13,16 +13,23 @@ export class ItemsComponent implements OnInit {
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
-    // fetch data from firebase
-    this.itemService.getItems().subscribe(
-      res => {
-        this.items = res;
-      },
-      error => {
- console.log('No Internet');
-      }
-    );
+    this.fetchData();
+  }
+
+  fetchData(){
+  // fetch data from firebase
+  this.itemService.getItems().subscribe(
+    res => {
+      this.items = res;
+    },
+    error => {
+console.log('No Internet');
+    }
+  );
 
   }
 
+  deleteItem(event,item){
+    this.itemService.deleteItem(item);
+  }
 }

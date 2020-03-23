@@ -1,7 +1,7 @@
 <div *ngIf="items?.length >0 ; else noItems" >
 
   <ul *ngFor="let item of items" class="collection">
-    <li class="collection-item">{{item.id}}<strong>{{item.title}} </strong>: {{item.description}}</li>
+    <li (dblclick)="deleteItem($event,item)" class="collection-item">{{item.id}}<strong>{{item.title}} </strong>: {{item.description}}</li>
 
 
   </ul>
